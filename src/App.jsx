@@ -17,13 +17,14 @@ function jsonLd() {
     name: centre.name,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: centre.locality,
+      addressLocality: centre.addressLocality || centre.locality,
       addressRegion: centre.region,
       addressCountry: centre.country,
       ...(centre.streetAddress && { streetAddress: centre.streetAddress }),
       ...(centre.postalCode && { postalCode: centre.postalCode }),
     },
     hasMap: centre.mapsUrl,
+    ...(centre.geo && { geo: { '@type': 'GeoCoordinates', latitude: centre.geo.lat, longitude: centre.geo.lng } }),
     ...(centre.phone && { telephone: centre.phone }),
     ...(centre.siteUrl && { url: centre.siteUrl }),
   }

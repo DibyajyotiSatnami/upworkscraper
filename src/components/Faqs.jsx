@@ -1,14 +1,22 @@
 import { useState } from 'react'
-import { faqs, testimonials } from '../config.js'
+import { centre, faqs, testimonials } from '../config.js'
 
 export function Feedback() {
   if (!testimonials.length) return null // omitted until genuine, attributable reviews exist
   return (
-    <section className="section">
-      <h2 className="h2">Parent feedback</h2>
-      <ul className="mt-8 grid gap-6 md:grid-cols-2">
+    <section id="feedback" className="section reveal">
+      <p className="eyebrow">Parent feedback</p>
+      <h2 className="h2">What parents say on Google</h2>
+      {centre.googleRating && (
+        <p className="mt-3 text-ink/70">
+          Rated <strong className="text-ink">{centre.googleRating.value} out of 5</strong> from {centre.googleRating.count} reviews on{' '}
+          <a className="font-semibold underline" href={centre.mapsUrl} target="_blank" rel="noopener noreferrer">Google Maps<span className="sr-only"> (opens in a new tab)</span></a>{' '}
+          (as of {centre.googleRating.asOf}). Selected reviews are quoted below as written.
+        </p>
+      )}
+      <ul className="mt-8 grid gap-6 md:grid-cols-3">
         {testimonials.map((t) => (
-          <li key={t.name} className="card"><blockquote>“{t.quote}”</blockquote><p className="mt-3 font-bold">{t.name}</p><p className="text-sm text-ink/60">{t.source}</p></li>
+          <li key={t.name} className="card flex flex-col"><span aria-hidden="true" className="text-5xl font-extrabold leading-none text-brand-400">“</span><blockquote className="mt-2 flex-1 text-ink/85">{t.quote}</blockquote><p className="mt-3 font-bold">{t.name}</p><p className="text-sm text-ink/60">{t.source}</p></li>
         ))}
       </ul>
     </section>

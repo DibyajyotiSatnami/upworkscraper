@@ -15,6 +15,13 @@ export default function Hero() {
             Abacus and mental arithmetic classes for children in Lakhra, Guwahati. Talk to the centre about the programmes,
             find out what suits your child, and ask about a demo class.
           </p>
+          {centre.googleRating && (
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow-card">
+              <span aria-hidden="true" className="text-amber-500">★</span>
+              {centre.googleRating.value} on Google Maps · {centre.googleRating.count} reviews
+              <span className="font-normal text-ink/60">(as of {centre.googleRating.asOf})</span>
+            </p>
+          )}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#contact" className="btn btn-primary">Enquire About a Demo</a>
             <a href={centre.mapsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">

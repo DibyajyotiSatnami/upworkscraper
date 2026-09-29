@@ -13,13 +13,20 @@ export const centre = {
   region: 'Assam',
   country: 'IN',
 
-  // ---- Unverified (could not be read from Google Maps / official pages) ----
-  streetAddress: null, // e.g. 'House No. 12, Lakhra Road'
-  postalCode: null,
-  phone: null, // international format, e.g. '+919XXXXXXXXX'
+  // ---- Verified from the centre's Google Maps listing (copied by site owner, 29 Sep 2026) ----
+  streetAddress: 'UCO Bank Building, Lokhra Bamunpara',
+  addressLocality: 'Lokhra', // spelling used in the listing's address
+  postalCode: '781040',
+  plusCode: '4P9X+49 Guwahati, Assam',
+  geo: { lat: 26.1178433, lng: 91.7484423 }, // from the supplied Maps link
+  phone: '+918638669857', // listed as 086386 69857
+  phoneDisplay: '086386 69857',
+  googleRating: { value: 4.9, count: 104, asOf: '29 Sep 2026' }, // shown with attribution; not used in structured data
+
+  // ---- Still unverified ----
   whatsapp: null, // digits only with country code, e.g. '919XXXXXXXXX' – only if the centre confirms it
   email: null, // used for "mailto:" enquiries if set
-  hours: null, // e.g. ['Mon–Fri: 4:00 pm – 7:00 pm'] – array of strings
+  hours: null, // not listed on Google Maps yet. e.g. ['Mon–Fri: 4:00 pm – 7:00 pm'] – array of strings
   siteUrl: null, // public URL once launched (used in structured data)
 
   // Supplied by the site owner (Google Maps listing for this centre)
@@ -71,8 +78,24 @@ export const gallery = [
 ]
 
 /** Parent feedback: add ONLY genuine, attributable, permitted reviews. Empty = section is not rendered. */
-export const testimonials = []
-// e.g. { quote: '…', name: 'Parent name', source: 'Google review, Month Year' }
+// Public Google Maps reviews of this centre, copied from the listing on 29 Sep 2026.
+export const testimonials = [
+  {
+    quote: 'My child has shown great improvement in concentration and mental math after joining the abacus classes. The teacher is supportive, and explains every concept clearly.',
+    name: 'Priti Das',
+    source: 'Google review',
+  },
+  {
+    quote: 'I found very good improvement in my daughter. And teachers are very nice and kind. They guide my daughter and all the students very sweetly.',
+    name: 'Deepika Das',
+    source: 'Google review',
+  },
+  {
+    quote: "It's being new and exciting experience for my child. Hope it will be great learning and confidence building for future ahead.",
+    name: 'Chatrajit Sinha',
+    source: 'Google review',
+  },
+]
 
 export const faqs = [
   {

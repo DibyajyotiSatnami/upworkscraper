@@ -42,8 +42,8 @@ export default function Contact() {
         <div className="card space-y-5">
           <h3 className="text-xl font-extrabold">{centre.name}</h3>
           <dl className="space-y-4">
-            <div><dt className="font-bold">Address</dt><dd>{centre.streetAddress ? `${centre.streetAddress}, ${centre.locality}, ${centre.city}${centre.postalCode ? ' – ' + centre.postalCode : ''}` : <>{TBC} <span className="text-ink/70">— see the Google Maps listing below</span></>}</dd></div>
-            <div><dt className="font-bold">Phone</dt><dd>{telHref ? <a className="font-semibold underline" href={telHref}>{centre.phone}</a> : TBC}</dd></div>
+            <div><dt className="font-bold">Address</dt><dd>{centre.streetAddress ? <>{centre.streetAddress}, {centre.addressLocality}, {centre.city}, {centre.region}{centre.postalCode ? ' ' + centre.postalCode : ''}{centre.plusCode && <span className="block text-sm text-ink/60">Plus Code: {centre.plusCode}</span>}</> : <>{TBC} <span className="text-ink/70">— see the Google Maps listing below</span></>}</dd></div>
+            <div><dt className="font-bold">Phone</dt><dd>{telHref ? <a className="font-semibold underline" href={telHref}>{centre.phoneDisplay}</a> : TBC}</dd></div>
             <div><dt className="font-bold">Opening hours</dt><dd>{centre.hours ? centre.hours.map((h) => <div key={h}>{h}</div>) : TBC}</dd></div>
           </dl>
           <div className="flex flex-wrap gap-3">
@@ -83,8 +83,8 @@ export default function Contact() {
             {result?.kind === 'info' && <p className="rounded-2xl bg-indigo-50 p-4 font-semibold">{result.text}</p>}
             {result?.kind === 'pending' && (
               <div className="rounded-2xl bg-amber-50 p-4">
-                <p className="font-bold text-amber-900">Enquiry sending isn't connected yet – nothing has been sent.</p>
-                <p className="mt-1 text-sm">The centre's WhatsApp/email hasn't been added to this site. Copy your message below and send it to the centre once its contact details are available.</p>
+                <p className="font-bold text-amber-900">Nothing has been sent yet.</p>
+                <p className="mt-1 text-sm">Online enquiries aren't connected to the centre yet. Please {telHref ? <>call the centre on <a className="font-semibold underline" href={telHref}>{centre.phoneDisplay}</a>, or </> : ''}copy the message below to share with the centre.</p>
                 <pre className="mt-3 whitespace-pre-wrap rounded-xl bg-white p-3 text-sm">{result.text}</pre>
                 <button type="button" onClick={copy} className="btn btn-secondary mt-3 !py-2">Copy message</button>
               </div>
