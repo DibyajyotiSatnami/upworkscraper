@@ -1,0 +1,97 @@
+import { useRef, useState } from 'react'
+import { centre } from '../config.js'
+import { telHref, waBase, validate, buildMessage } from '../lib/contact.js'
+
+const TBC = <span className="rounded bg-amber-100 px-2 py-0.5 text-sm font-semibold text-amber-900">To be confirmed</span>
+
+export default function Contact() {
+  const [vals, setVals] = useState({ name: '', phone: '', message: '' })
+  const [errors, setErrors] = useState({})
+  const [result, setResult] = useState(null)
+  const refs = { name: useRef(), phone: useRef(), message: useRef() }
+  const set = (k) => (e) => setVals({ ...vals, [k]: e.target.value })
+
+  const submit = (e) => {
+    e.preventDefault()
+    const errs = validate(vals)
+    setErrors(errs)
+    const first = Object.keys(errs)[0]
+    if (first) { refs[first].current?.focus(); setResult(null); return }
+    const text = buildMessage(vals)
+    if (waBase) {
+      window.open(`${waBase}?text=${encodeURIComponent(text)}`, '_blank', 'noopener')
+      setResult({ kind: 'info', text: 'WhatsApp should now be open with your message ready. Please press Send there – your enquiry has not been sent until you do.' })
+    } else if (centre.email) {
+      window.location.href = `mailto:${centre.email}?subject=${encodeURIComponent('Demo enquiry')}&body=${encodeURIComponent(text)}`
+      setResult({ kind: 'info', text: 'Your email app should now open with the message ready. Please press Send there – your enquiry has not been sent until you do.' })
+    } else {
+      setResult({ kind: 'pending', text })
+    }
+  }
+
+  const copy = () => navigator.clipboard?.writeText(result.text)
+
+  const err = (k) => errors[k] && <p id={`${k}-err`} className="mt-1 text-sm font-semibold text-red-700">{errors[k]}</p>
+  const a11y = (k) => ({ 'aria-invalid': !!errors[k], 'aria-describedby': errors[k] ? `${k}-err` : undefined })
+
+  return (
+    <section id="contact" className="section reveal">
+      <p className="eyebrow">Contact &amp; enquiry</p>
+      <h2 className="h2">Talk to the {centre.locality} centre</h2>
+      <div className="mt-10 grid gap-8 lg:grid-cols-2">
+        <div className="card space-y-5">
+          <h3 className="text-xl font-extrabold">{centre.name}</h3>
+          <dl className="space-y-4">
+            <div><dt className="font-bold">Address</dt><dd>{centre.streetAddress ? `${centre.streetAddress}, ${centre.locality}, ${centre.city}${centre.postalCode ? ' – ' + centre.postalCode : ''}` : <>{TBC} <span className="text-ink/70">— see the Google Maps listing below</span></>}</dd></div>
+            <div><dt className="font-bold">Phone</dt><dd>{telHref ? <a className="font-semibold underline" href={telHref}>{centre.phone}</a> : TBC}</dd></div>
+            <div><dt className="font-bold">Opening hours</dt><dd>{centre.hours ? centre.hours.map((h) => <div key={h}>{h}</div>) : TBC}</dd></div>
+          </dl>
+          <div className="flex flex-wrap gap-3">
+            {telHref && <a href={telHref} className="btn btn-primary">Call the centre</a>}
+            <a href={centre.mapsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">Get Directions<span className="sr-only"> (opens Google Maps in a new tab)</span></a>
+          </div>
+          {centre.mapEmbedUrl ? (
+            <iframe title="Map showing SIP Abacus Lakhra" src={centre.mapEmbedUrl} loading="lazy" className="h-64 w-full rounded-2xl border-0" referrerPolicy="no-referrer-when-downgrade" />
+          ) : null}
+        </div>
+
+        <form onSubmit={submit} noValidate className="card space-y-5" aria-labelledby="enq-h">
+          <h3 id="enq-h" className="text-xl font-extrabold">Enquire About a Demo</h3>
+          <div>
+            <label htmlFor="name" className="font-bold">Parent / guardian name</label>
+            <input id="name" ref={refs.name} className="field" autoComplete="name" value={vals.name} onChange={set('name')} required {...a11y('name')} />
+            {err('name')}
+          </div>
+          <div>
+            <label htmlFor="phone" className="font-bold">Contact number</label>
+            <input id="phone" ref={refs.phone} className="field" type="tel" inputMode="tel" autoComplete="tel" value={vals.phone} onChange={set('phone')} required {...a11y('phone')} />
+            {err('phone')}
+          </div>
+          <div>
+            <label htmlFor="message" className="font-bold">Message <span className="font-normal text-ink/60">(optional)</span></label>
+            <textarea id="message" ref={refs.message} rows="4" className="field" value={vals.message} onChange={set('message')} {...a11y('message')} />
+            {err('message')}
+          </div>
+          <button type="submit" className="btn btn-primary w-full">
+            {waBase ? 'Continue in WhatsApp' : centre.email ? 'Continue in email' : 'Prepare my enquiry'}
+          </button>
+          <p className="text-sm text-ink/60">
+            We only ask for your name, number and optional message. Please don't include your child's personal details.
+            {waBase ? ' Your details are passed to WhatsApp, and nothing is sent until you press Send.' : ''}
+          </p>
+          <div aria-live="polite">
+            {result?.kind === 'info' && <p className="rounded-2xl bg-indigo-50 p-4 font-semibold">{result.text}</p>}
+            {result?.kind === 'pending' && (
+              <div className="rounded-2xl bg-amber-50 p-4">
+                <p className="font-bold text-amber-900">Enquiry sending isn't connected yet – nothing has been sent.</p>
+                <p className="mt-1 text-sm">The centre's WhatsApp/email hasn't been added to this site. Copy your message below and send it to the centre once its contact details are available.</p>
+                <pre className="mt-3 whitespace-pre-wrap rounded-xl bg-white p-3 text-sm">{result.text}</pre>
+                <button type="button" onClick={copy} className="btn btn-secondary mt-3 !py-2">Copy message</button>
+              </div>
+            )}
+          </div>
+        </form>
+      </div>
+    </section>
+  )
+}
