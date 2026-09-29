@@ -80,7 +80,7 @@ export default function Contact() {
             {waBase ? ' Your details are passed to WhatsApp, and nothing is sent until you press Send.' : ''}
           </p>
           <div aria-live="polite">
-            {result?.kind === 'info' && <p className="rounded-2xl bg-indigo-50 p-4 font-semibold">{result.text}</p>}
+            {result?.kind === 'info' && <p className="rounded-2xl bg-brand-50 p-4 border-2 border-brand-200 font-semibold">{result.text}</p>}
             {result?.kind === 'pending' && (
               <div className="rounded-2xl bg-amber-50 p-4">
                 <p className="font-bold text-amber-900">Nothing has been sent yet.</p>

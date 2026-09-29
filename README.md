@@ -1,6 +1,9 @@
 # SIP Abacus, Lakhra – centre website
 
-React + Vite + Tailwind CSS (v3). Not published; run locally only.
+React + Vite + Tailwind CSS (v3).
+
+## Deploy (GitHub Pages)
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and deploys it. One-time setup: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**. The site is then served at `https://dibyajyotisatnami.github.io/sip-abacus/`.
 
 ## Setup
 ```
@@ -22,14 +25,17 @@ The two requested sources (`sipabacus.com/in/` and the Google Maps listing) were
 | Google rating 4.9 / 104 reviews and 3 quoted reviews (Priti Das, Deepika Das, Chatrajit Sinha) | From the same listing; shown with "as of" date and a link. Not put in structured data |
 | Opening hours, WhatsApp, email, social links | **Placeholders – unverified** (hours not listed on Maps) |
 | Fees, ages, levels, batch timings, demo availability | Deliberately omitted |
-| Brand colours / logo | **Not inspected.** Palette is a placeholder; logo is a plain text treatment |
-| Photos | None used. Gallery tiles are placeholders |
+| Logo | Supplied by the site owner (`public/images/sip-abacus-logo.webp`, cropped from the supplied JPEG) |
+| Brand colours | Sampled from that logo: orange ≈ #F58634, red ≈ #E23B3B, grey ≈ #3A3A3A (darker shades used where needed for contrast) |
+| Photos | 12 photos supplied by the site owner, in `public/gallery/` as 600px and 1200px WebP. Captions only state what is visible or printed in each photo. "At the centre" photos show the Lakhra classroom; one certificate reads "SIP Lakhra". Event photos are SIP regional/Assam events (Regional SIP Abacus Competition, 28 July 2024; SIP Assam Annual Awards 2022) |
+| Local programme | The SIP Lakhra certificate shows "Junior Level 1" of the "SIP Abacus Junior programme", so that programme is marked as offered at Lakhra |
 
 Lachit Nagar SIP Abacus listings found in search are different centres and were not used.
 
 ## Needed before launch
 1. Opening hours. Re-check the Google rating/review count before launch and update `asOf`; ideally get the reviewers' or centre's OK to quote them.
 2. Confirmed WhatsApp number (enables prefilled WhatsApp enquiry) and/or an enquiry email. Until then the form validates and lets parents copy the message; it says plainly that nothing was sent.
-3. Google Maps embed URL (optional), verified social links, authorised centre photos (`public/gallery/`), authorised logo and brand colours.
-4. Confirmation of which programmes run locally, and any genuine attributable parent reviews.
-5. Public site URL (for structured data). JSON-LD includes only filled-in fields, no ratings.
+3. Google Maps embed URL (optional) and verified social links.
+4. Confirm parents have agreed to their children's photos being used online. The certificate photo shows a child's name, so replace or blur it if consent isn't given.
+5. Confirmation of which other programmes run locally, and any genuine attributable parent reviews.
+6. Public site URL (for structured data). JSON-LD includes only filled-in fields, no ratings.

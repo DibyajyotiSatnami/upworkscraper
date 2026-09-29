@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { centre } from '../config.js'
+import { centre, logo } from '../config.js'
 
 const links = [['About', '#about'], ['Programmes', '#programmes'], ['Benefits', '#benefits'], ['Gallery', '#gallery'], ['FAQs', '#faqs'], ['Contact', '#contact']]
 
@@ -18,9 +18,11 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-white/90 backdrop-blur">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-3">Skip to content</a>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" className="leading-tight">
-          <span className="block text-xl font-extrabold text-brand-600">{centre.brandName}</span>
-          <span className="block text-xs font-bold uppercase tracking-widest">{centre.locality}, {centre.city}</span>
+        <a href="#top" className="flex items-center gap-3 leading-tight">
+          <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="h-10 w-auto sm:h-12" />
+          <span className="border-l-2 border-brand-200 pl-3 text-xs font-bold uppercase tracking-widest text-ink/80">
+            {centre.locality}<span className="block font-semibold text-ink/60">{centre.city}</span>
+          </span>
         </a>
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex gap-6 font-semibold">

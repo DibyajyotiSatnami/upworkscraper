@@ -1,5 +1,6 @@
-import { centre } from '../config.js'
+import { centre, heroImage } from '../config.js'
 import Abacus, { NumberMotifs } from './Abacus.jsx'
+import Photo from './Photo.jsx'
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
         <div>
           <p className="eyebrow">{centre.name} · {centre.city}, {centre.region}</p>
           <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Discover the Joy of Numbers at <span className="text-brand-600">SIP Abacus, Lakhra.</span>
+            Discover the Joy of Numbers at <span className="text-orange-deep">SIP Abacus, Lakhra.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-ink/80">
             Abacus and mental arithmetic classes for children in Lakhra, Guwahati. Talk to the centre about the programmes,
@@ -29,8 +30,15 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="mx-auto w-full max-w-md md:max-w-none">
-          <Abacus className="w-full drop-shadow-xl" />
+        <div className="relative mx-auto w-full max-w-md md:max-w-none">
+          <div className="absolute -inset-3 rotate-2 rounded-[2.5rem] bg-brand-400/30" aria-hidden="true" />
+          <figure className="relative overflow-hidden rounded-[2rem] border-4 border-white bg-white shadow-card">
+            <Photo item={heroImage} eager sizes="(min-width: 768px) 45vw, 90vw" className="aspect-[5/4] w-full object-cover object-[center_75%]" />
+            <figcaption className="sr-only">{heroImage.caption}</figcaption>
+          </figure>
+          <div className="absolute -bottom-8 -left-4 w-32 rounded-3xl bg-white p-2 shadow-card sm:-left-8 sm:w-40">
+            <Abacus className="w-full" />
+          </div>
         </div>
       </div>
     </section>

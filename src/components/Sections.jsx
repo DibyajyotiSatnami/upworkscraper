@@ -1,4 +1,5 @@
-import { centre, programmes, officialSiteUrl } from '../config.js'
+import { centre, programmes, officialSiteUrl, aboutImage } from '../config.js'
+import Photo from './Photo.jsx'
 
 export function About() {
   return (
@@ -20,9 +21,10 @@ export function About() {
             <a className="font-semibold underline" href={officialSiteUrl} target="_blank" rel="noopener noreferrer">sipabacus.com/in<span className="sr-only"> (opens in a new tab)</span></a>
           </p>
         </div>
-        <div className="card flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-brand-100 to-indigo-100 text-center">
-          <p className="max-w-xs font-semibold text-ink/70">Photo of the Lakhra centre coming soon<br /><span className="text-sm font-normal">(placeholder – add a real photo)</span></p>
-        </div>
+        <figure className="overflow-hidden rounded-3xl bg-white shadow-card">
+          <Photo item={aboutImage} sizes="(min-width: 768px) 45vw, 90vw" className="aspect-[4/3] w-full object-cover" />
+          <figcaption className="px-5 py-3 text-sm font-semibold text-ink/70">{aboutImage.caption}</figcaption>
+        </figure>
       </div>
     </section>
   )
@@ -41,7 +43,8 @@ export function Programmes() {
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 text-2xl font-extrabold text-brand-600" aria-hidden="true">{i + 1}</span>
               <h3 className="mt-4 text-xl font-extrabold">{p.name}</h3>
               <p className="mt-2 text-ink/75">{p.description}</p>
-              <p className="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">Availability, ages &amp; fees: confirm with centre</p>
+              {p.localNote && <p className="mt-4 rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900">{p.localNote}</p>}
+              <p className="mt-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">{p.localNote ? 'Ages, levels & fees' : 'Availability, ages & fees'}: confirm with centre</p>
             </li>
           ))}
         </ul>

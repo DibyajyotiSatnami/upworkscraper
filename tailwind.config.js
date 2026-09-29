@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Placeholder palette – the official SIP Abacus site could not be inspected,
-        // so these are NOT confirmed brand colours. Swap once brand assets are supplied.
-        ink: '#1e1b4b',
-        brand: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 400: '#fb923c', 500: '#f97316', 600: '#c2410c', 700: '#9a3412' },
+        // Sampled from the SIP Abacus logo supplied by the centre:
+        // orange ≈ #F58634 (cap + "SIP"), red ≈ #E23B3B ("success assured"), grey ≈ #3A3A3A ("abacus").
+        // Button/text shades are darkened for WCAG AA contrast on white.
+        ink: '#2e2b33',
+        brand: { 50: '#fff8f2', 100: '#ffeddc', 200: '#fdd3ae', 400: '#f58634', 500: '#ef6c1f', 600: '#c52a2a', 700: '#a11f1f' },
+        orange: { logo: '#f58634', deep: '#b8520f' },
         sky: { soft: '#eef2ff' },
         leaf: { 100: '#d1fae5', 600: '#047857' },
       },

@@ -40,6 +40,9 @@ export const centre = {
   },
 }
 
+// Logo and photos supplied by the site owner (WhatsApp export, 29 Sep 2026) for use on this site.
+export const logo = { src: 'images/sip-abacus-logo.webp', alt: 'SIP Abacus – success assured', width: 480, height: 231 }
+
 export const officialSiteUrl = 'https://sipabacus.com/in/' // national brand reference only
 
 /**
@@ -52,6 +55,8 @@ export const programmes = [
     name: 'Abacus & Mental Arithmetic',
     description:
       'Children learn to work with the abacus and gradually move on to calculating in the mind, in a structured, step-by-step programme.',
+    // A centre certificate shows "Junior Level 1 … SIP Abacus Junior programme at SIP Lakhra".
+    localNote: 'Offered at Lakhra – a SIP Lakhra certificate shows Junior Level 1 of the SIP Abacus Junior programme.',
   },
   {
     id: 'brain-gym',
@@ -67,15 +72,28 @@ export const programmes = [
   },
 ]
 
-/** Gallery: add real centre photos to /public/gallery and fill `src` + `alt`. Empty src = placeholder. */
+/**
+ * Gallery – photos supplied by the site owner. Each `src` is a base path; the site loads
+ * `<src>-600.webp` and `<src>-1200.webp`. `group` controls which heading a photo sits under.
+ * Captions describe only what is visible or printed in the photo.
+ */
 export const gallery = [
-  { src: null, alt: 'Children practising on abacus in a Lakhra class', caption: 'Classroom practice' },
-  { src: null, alt: 'Brain Gym activity at the centre', caption: 'Brain Gym activity' },
-  { src: null, alt: 'Centre event', caption: 'Centre events' },
-  { src: null, alt: 'Students at the Lakhra centre', caption: 'Our students' },
-  { src: null, alt: 'Classroom at SIP Abacus Lakhra', caption: 'The classroom' },
-  { src: null, alt: 'Certificate or celebration moment', caption: 'Celebrations' },
+  { src: 'gallery/class-cards', group: 'centre', alt: 'Smiling children in orange SIP T-shirts holding up cards in class, with an abacus on the desk', caption: 'Proud moments in class' },
+  { src: 'gallery/junior-certificate', group: 'centre', alt: 'A boy and a parent holding an SIP Abacus Junior Level certificate issued at SIP Lakhra', caption: 'Junior Level 1 certificate, SIP Lakhra' },
+  { src: 'gallery/abacus-practice', group: 'centre', alt: 'Children in orange uniforms practising at their desks with abacus and workbooks', caption: 'Abacus practice' },
+  { src: 'gallery/craft-cards', group: 'centre', alt: 'Children holding up colourful handmade cards in the classroom', caption: 'Card-making activity' },
+  { src: 'gallery/flag-celebration', group: 'centre', alt: 'Two young children smiling, one holding the Indian national flag', caption: 'Celebrating with the tricolour' },
+  { src: 'gallery/activity-time', group: 'centre', alt: 'Children seated at yellow desks with paper gift bags', caption: 'Activity time' },
+  { src: 'gallery/regional-competition-2024', group: 'events', alt: 'Large group photo in front of the Regional SIP Abacus Competition banner, Assam, 28 July 2024', caption: 'Regional SIP Abacus Competition, Assam – 28 July 2024' },
+  { src: 'gallery/competition-day', group: 'events', alt: 'Children writing at desks in a large hall during a competition', caption: 'Competition day' },
+  { src: 'gallery/prize-giving-2024', group: 'events', alt: 'A student in an orange SIP T-shirt receiving a trophy on stage at an abacus competition in 2024', caption: 'Prize-giving, 2024' },
+  { src: 'gallery/volunteers-2024', group: 'events', alt: 'Volunteers in blue SIP T-shirts at the Regional SIP Abacus Competition 2024, Assam', caption: 'Volunteers at the regional competition, 2024' },
+  { src: 'gallery/volunteer-team', group: 'events', alt: 'A team of volunteers in blue SIP T-shirts standing together at an event venue', caption: 'Event volunteer team' },
+  { src: 'gallery/annual-awards-2022', group: 'events', alt: 'Teachers holding certificates on stage at the SIP Assam Annual Awards 2022', caption: 'SIP Assam Annual Awards 2022 (14th Annual Meet, Feb 2023)' },
 ]
+
+export const heroImage = gallery[0]
+export const aboutImage = gallery[2]
 
 /** Parent feedback: add ONLY genuine, attributable, permitted reviews. Empty = section is not rendered. */
 // Public Google Maps reviews of this centre, copied from the listing on 29 Sep 2026.
