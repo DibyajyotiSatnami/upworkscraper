@@ -1,5 +1,6 @@
 import { centre, programmes, officialSiteUrl, aboutImage } from '../config.js'
 import Photo from './Photo.jsx'
+import EnquireLink from './EnquireLink.jsx'
 
 export function About() {
   return (
@@ -95,7 +96,7 @@ export function GetStarted() {
             </li>
           ))}
         </ol>
-        <a href="#contact" className="btn btn-primary mt-10">Enquire About a Demo</a>
+        <EnquireLink className="btn btn-primary mt-10" />
       </div>
     </section>
   )

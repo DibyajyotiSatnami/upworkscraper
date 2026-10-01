@@ -24,7 +24,9 @@ export const centre = {
   googleRating: { value: 4.9, count: 104, asOf: '29 Sep 2026' }, // shown with attribution; not used in structured data
 
   // ---- Still unverified ----
-  whatsapp: null, // digits only with country code, e.g. '919XXXXXXXXX' – only if the centre confirms it
+  // WhatsApp enquiries go to the centre's listed mobile (086386 69857), as requested by the site owner.
+  // Digits only, with country code. Change here if the centre uses a different WhatsApp number.
+  whatsapp: '918638669857',
   email: null, // used for "mailto:" enquiries if set
   hours: null, // not listed on Google Maps yet. e.g. ['Mon–Fri: 4:00 pm – 7:00 pm'] – array of strings
   siteUrl: null, // public URL once launched (used in structured data)

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { centre, logo } from '../config.js'
+import EnquireLink from './EnquireLink.jsx'
 
 const links = [['About', '#about'], ['Programmes', '#programmes'], ['Benefits', '#benefits'], ['Gallery', '#gallery'], ['FAQs', '#faqs'], ['Contact', '#contact']]
 
@@ -29,7 +30,9 @@ export default function Header() {
             {links.map(([l, h]) => <li key={h}><a className="rounded px-1 py-1 hover:text-brand-600" href={h}>{l}</a></li>)}
           </ul>
         </nav>
-        <a href="#contact" className="btn btn-primary hidden !py-2 lg:inline-flex">Enquire About a Demo</a>
+        <EnquireLink className="btn btn-primary hidden shrink-0 !px-5 !py-2 lg:inline-flex">
+          <span className="xl:hidden">Enquire</span><span className="hidden xl:inline">Enquire About a Demo</span>
+        </EnquireLink>
         <button
           ref={btn}
           type="button"
@@ -51,7 +54,7 @@ export default function Header() {
               <li key={h}><a onClick={() => setOpen(false)} className="block rounded-lg px-2 py-3 text-lg font-semibold" href={h}>{l}</a></li>
             ))}
           </ul>
-          <a onClick={() => setOpen(false)} href="#contact" className="btn btn-primary mt-2 w-full">Enquire About a Demo</a>
+          <EnquireLink onClick={() => setOpen(false)} className="btn btn-primary mt-2 w-full" />
         </nav>
       )}
     </header>

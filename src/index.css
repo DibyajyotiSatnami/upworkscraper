@@ -8,7 +8,7 @@
   :focus-visible { @apply outline-none ring-4 ring-indigo-500 ring-offset-2 ring-offset-white; }
 }
 @layer components {
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-bold transition duration-200 hover:-translate-y-0.5 active:translate-y-0; }
+  .btn { @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 font-bold transition duration-200 hover:-translate-y-0.5 active:translate-y-0; }
   .btn-primary { @apply bg-brand-600 text-white shadow-card hover:bg-brand-700; }
   .btn-secondary { @apply bg-white text-ink border-2 border-ink/15 hover:border-ink/40; }
   .card { @apply rounded-3xl bg-white p-6 shadow-card; }

@@ -3,6 +3,10 @@ import { centre } from '../config.js'
 export const telHref = centre.phone ? `tel:${centre.phone}` : null
 export const waBase = centre.whatsapp ? `https://wa.me/${centre.whatsapp}` : null
 
+// Used by every "Enquire" button: opens WhatsApp with a ready-to-send message (falls back to the form).
+export const waEnquiryText = `Hello ${centre.name}, I would like to enquire about a demo class for my child.`
+export const enquireHref = waBase ? `${waBase}?text=${encodeURIComponent(waEnquiryText)}` : '#contact'
+
 export function validate({ name, phone, message }) {
   const errors = {}
   if (!name.trim()) errors.name = 'Please enter the parent or guardian name.'

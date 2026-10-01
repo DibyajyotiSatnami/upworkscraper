@@ -23,7 +23,8 @@ The two requested sources (`sipabacus.com/in/` and the Google Maps listing) were
 | Programme names (Abacus, Brain Gym, Speed Writing) and general approach | From web-search excerpts of sipabacus.com; **not read on the site itself – confirm** |
 | Address (UCO Bank Building, Lokhra Bamunpara, Lokhra, Guwahati 781040), Plus Code, phone 086386 69857 | **Verified** – from the Google Maps listing text supplied by the site owner (29 Sep 2026) |
 | Google rating 4.9 / 104 reviews and 3 quoted reviews (Priti Das, Deepika Das, Chatrajit Sinha) | From the same listing; shown with "as of" date and a link. Not put in structured data |
-| Opening hours, WhatsApp, email, social links | **Placeholders – unverified** (hours not listed on Maps) |
+| WhatsApp | Set to the listed mobile 086386 69857 at the site owner's request; every Enquire button opens WhatsApp with a prefilled message. **Confirm this number is on WhatsApp** |
+| Opening hours, email, social links | **Placeholders – unverified** (hours not listed on Maps) |
 | Fees, ages, levels, batch timings, demo availability | Deliberately omitted |
 | Logo | Supplied by the site owner (`public/images/sip-abacus-logo.webp`, cropped from the supplied JPEG) |
 | Brand colours | Sampled from that logo: orange ≈ #F58634, red ≈ #E23B3B, grey ≈ #3A3A3A (darker shades used where needed for contrast) |
@@ -34,7 +35,7 @@ Lachit Nagar SIP Abacus listings found in search are different centres and were 
 
 ## Needed before launch
 1. Opening hours. Re-check the Google rating/review count before launch and update `asOf`; ideally get the reviewers' or centre's OK to quote them.
-2. Confirmed WhatsApp number (enables prefilled WhatsApp enquiry) and/or an enquiry email. Until then the form validates and lets parents copy the message; it says plainly that nothing was sent.
+2. Confirm 086386 69857 receives WhatsApp messages (or set `whatsapp` in `src/config.js` to the right number).
 3. Google Maps embed URL (optional) and verified social links.
 4. Confirm parents have agreed to their children's photos being used online. The certificate photo shows a child's name, so replace or blur it if consent isn't given.
 5. Confirmation of which other programmes run locally, and any genuine attributable parent reviews.
