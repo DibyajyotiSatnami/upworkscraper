@@ -39,7 +39,7 @@ export default function Contact() {
       <p className="eyebrow">Contact &amp; enquiry</p>
       <h2 className="h2">Talk to the {centre.locality} centre</h2>
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
-        <div className="card space-y-5">
+        <div className="card flex flex-col gap-5">
           <h3 className="text-xl font-extrabold">{centre.name}</h3>
           <dl className="space-y-4">
             <div><dt className="font-bold">Address</dt><dd>{centre.streetAddress ? <>{centre.streetAddress}, {centre.addressLocality}, {centre.city}, {centre.region}{centre.postalCode ? ' ' + centre.postalCode : ''}{centre.plusCode && <span className="block text-sm text-ink/60">Plus Code: {centre.plusCode}</span>}</> : <>{TBC} <span className="text-ink/70">— see the Google Maps listing below</span></>}</dd></div>
@@ -48,11 +48,24 @@ export default function Contact() {
           </dl>
           <div className="flex flex-wrap gap-3">
             {telHref && <a href={telHref} className="btn btn-primary">Call the centre</a>}
-            <a href={centre.mapsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">Get Directions<span className="sr-only"> (opens Google Maps in a new tab)</span></a>
           </div>
-          {centre.mapEmbedUrl ? (
-            <iframe title="Map showing SIP Abacus Lakhra" src={centre.mapEmbedUrl} loading="lazy" className="h-64 w-full rounded-2xl border-0" referrerPolicy="no-referrer-when-downgrade" />
-          ) : null}
+          {centre.mapEmbedUrl && (
+            <figure id="location" className="flex min-h-[18rem] flex-1 flex-col overflow-hidden rounded-2xl border-2 border-ink/10">
+              <iframe
+                title={`Google Map showing the location of ${centre.name}`}
+                src={centre.mapEmbedUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                className="block min-h-[16rem] w-full flex-1 border-0"
+              />
+              <figcaption className="flex justify-end bg-brand-50 px-4 py-2 text-sm">
+                <a className="font-semibold text-brand-600 underline" href={centre.mapsUrl} target="_blank" rel="noopener noreferrer">
+                  Open in Google Maps<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </figcaption>
+            </figure>
+          )}
         </div>
 
         <form onSubmit={submit} noValidate className="card space-y-5" aria-labelledby="enq-h">

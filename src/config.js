@@ -32,8 +32,9 @@ export const centre = {
   // Supplied by the site owner (Google Maps listing for this centre)
   mapsUrl:
     'https://www.google.com/maps/place/SIP+ABACUS,+LAKHRA/@26.1178433,91.7103434,8509m/data=!3m1!1e3!4m10!1m2!2m1!1sabacus!3m6!1s0x375a5d997957d77b:0x5c8bf4a7a2a5b9b8!8m2!3d26.1178433!4d91.7484423!15sCgZhYmFjdXMiA4gBAVoIIgZhYmFjdXOSAQ90cmFpbmluZ19jZW50ZXLgAQA!16s%2Fg%2F11k9l71ddb?entry=ttu',
-  // Paste a valid "Share → Embed a map" src URL here to show a map. Otherwise no map is embedded.
-  mapEmbedUrl: null,
+  // Embedded map, pinned at the centre's coordinates from the Maps link above (no API key needed).
+  // To show Google's business card instead, replace with the listing's "Share → Embed a map" src URL.
+  mapEmbedUrl: 'https://maps.google.com/maps?q=26.1178433,91.7484423&z=17&hl=en&output=embed',
 
   social: {
     // facebook: 'https://…', instagram: 'https://…'  – only verified centre pages

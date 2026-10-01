@@ -17,12 +17,12 @@ export default function Footer() {
         <div className="space-y-1">
           {telHref && <p><a className="underline" href={telHref}>{centre.phoneDisplay}</a></p>}
           {waBase && <p><a className="underline" href={waBase} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>}
-          <p><a className="underline" href={centre.mapsUrl} target="_blank" rel="noopener noreferrer">Directions on Google Maps</a></p>
+          <p><a className="underline" href={centre.mapsUrl} target="_blank" rel="noopener noreferrer">View on Google Maps</a></p>
           {social.map(([n, u]) => <p key={n}><a className="capitalize underline" href={u} target="_blank" rel="noopener noreferrer">{n}</a></p>)}
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-6 text-center text-sm">
-        <p><strong>Privacy:</strong> the enquiry form collects only your name, contact number and optional message. It does not store or send anything itself; your message is passed to {waBase ? 'WhatsApp' : centre.email ? 'your email app' : 'you to copy'} and reaches the centre only when you send it.</p>
+        <p><strong>Privacy:</strong> the enquiry form collects only your name, contact number and optional message. It does not store or send anything itself; your message is passed to {waBase ? 'WhatsApp' : centre.email ? 'your email app' : 'you to copy'} and reaches the centre only when you send it. The location map is provided by Google, and Google's privacy policy applies to it.</p>
       </div>
     </footer>
   )
