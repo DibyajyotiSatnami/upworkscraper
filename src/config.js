@@ -29,7 +29,7 @@ export const centre = {
   whatsapp: '918638669857',
   email: null, // used for "mailto:" enquiries if set
   hours: null, // not listed on Google Maps yet. e.g. ['Mon–Fri: 4:00 pm – 7:00 pm'] – array of strings
-  siteUrl: null, // public URL once launched (used in structured data)
+  siteUrl: 'https://sipabacuslakhara.in/', // live domain (Hostinger) – used in structured data
 
   // Supplied by the site owner (Google Maps listing for this centre)
   mapsUrl:

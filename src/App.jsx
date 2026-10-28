@@ -7,7 +7,7 @@ import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import MobileBar from './components/MobileBar.jsx'
 import useReveal from './lib/useReveal.js'
-import { centre } from './config.js'
+import { centre, logo, heroImage } from './config.js'
 
 // Structured data: only verified fields; optional ones are added when filled in config.js. No ratings/reviews.
 function jsonLd() {
@@ -26,7 +26,11 @@ function jsonLd() {
     hasMap: centre.mapsUrl,
     ...(centre.geo && { geo: { '@type': 'GeoCoordinates', latitude: centre.geo.lat, longitude: centre.geo.lng } }),
     ...(centre.phone && { telephone: centre.phone }),
-    ...(centre.siteUrl && { url: centre.siteUrl }),
+    ...(centre.siteUrl && {
+      url: centre.siteUrl,
+      logo: new URL(logo.src, centre.siteUrl).href,
+      image: new URL(`${heroImage.src}-1200.webp`, centre.siteUrl).href,
+    }),
   }
   return JSON.stringify(d)
 }

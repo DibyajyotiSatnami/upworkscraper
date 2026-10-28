@@ -2,7 +2,12 @@
 
 React + Vite + Tailwind CSS (v3).
 
-## Deploy (GitHub Pages)
+## Live site (Hostinger)
+Live domain: https://sipabacuslakhara.in/ (Hostinger). Run `npm run build`, zip the **contents** of `dist/`
+(including the hidden `.htaccess`), and upload/extract them into `public_html` via hPanel → File Manager.
+`.htaccess` forces HTTPS and redirects `www.` to the bare domain.
+
+## Deploy (GitHub Pages – optional preview)
 Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and deploys it. One-time setup: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**. The site is then served at `https://dibyajyotisatnami.github.io/sip-abacus/`.
 
 ## Setup
@@ -39,4 +44,4 @@ Lachit Nagar SIP Abacus listings found in search are different centres and were 
 3. Google Maps embed URL (optional) and verified social links.
 4. Confirm parents have agreed to their children's photos being used online. The certificate photo shows a child's name, so replace or blur it if consent isn't given.
 5. Confirmation of which other programmes run locally, and any genuine attributable parent reviews.
-6. Public site URL (for structured data). JSON-LD includes only filled-in fields, no ratings.
+6. Structured data uses https://sipabacuslakhara.in/ and includes only filled-in fields, no ratings.
