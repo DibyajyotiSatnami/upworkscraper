@@ -30,7 +30,8 @@ The two requested sources (`sipabacus.com/in/` and the Google Maps listing) were
 | Google rating 4.9 / 104 reviews and 3 quoted reviews (Priti Das, Deepika Das, Chatrajit Sinha) | From the same listing; shown with "as of" date and a link. Not put in structured data |
 | WhatsApp | Set to the listed mobile 086386 69857 at the site owner's request; every Enquire button opens WhatsApp with a prefilled message. **Confirm this number is on WhatsApp** |
 | Opening hours, email, social links | **Placeholders – unverified** (hours not listed on Maps) |
-| Fees, ages, levels, batch timings, demo availability | Deliberately omitted |
+| Fees | Not mentioned anywhere on the site, at the owner's request |
+| Ages, levels, batch timings, demo availability | Deliberately omitted |
 | Logo | Supplied by the site owner (`public/images/sip-abacus-logo.webp`, cropped from the supplied JPEG) |
 | Brand colours | Sampled from that logo: orange ≈ #F58634, red ≈ #E23B3B, grey ≈ #3A3A3A (darker shades used where needed for contrast) |
 | Photos | 12 photos supplied by the site owner, in `public/gallery/` as 600px and 1200px WebP. Captions only state what is visible or printed in each photo. "At the centre" photos show the Lakhra classroom; one certificate reads "SIP Lakhra". Event photos are SIP regional/Assam events (Regional SIP Abacus Competition, 28 July 2024; SIP Assam Annual Awards 2022) |

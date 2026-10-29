@@ -8,7 +8,7 @@ export function About() {
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <div>
           <p className="eyebrow">About the centre</p>
-          <h2 className="h2">Your local SIP Abacus centre in {centre.locality}</h2>
+          <h2 className="h2">Your local SIP Abacus centre at {centre.locality}</h2>
           <p className="mt-4 text-lg text-ink/80">
             {centre.name} is the SIP Abacus centre serving families in {centre.locality}, {centre.city}. SIP Abacus is a
             national brand for children's abacus and mental arithmetic learning; this website is for the Lakhra centre only.
@@ -45,7 +45,7 @@ export function Programmes() {
               <h3 className="mt-4 text-xl font-extrabold">{p.name}</h3>
               <p className="mt-2 text-ink/75">{p.description}</p>
               {p.localNote && <p className="mt-4 rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-900">{p.localNote}</p>}
-              <p className="mt-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">{p.localNote ? 'Ages, levels & fees' : 'Availability, ages & fees'}: confirm with centre</p>
+              <p className="mt-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">{p.localNote ? 'Ages & levels' : 'Availability, ages & levels'}: confirm with centre</p>
             </li>
           ))}
         </ul>
@@ -78,7 +78,7 @@ export function Benefits() {
 
 const steps = [
   ['Send an enquiry', 'Share your name and contact number using the form below.'],
-  ['Discuss suitable classes', 'The centre can talk you through programmes, timings and fees.'],
+  ['Discuss suitable classes', 'The centre can talk you through programmes and timings.'],
   ['Arrange a visit or demo', 'Subject to availability at the centre.'],
 ]
 

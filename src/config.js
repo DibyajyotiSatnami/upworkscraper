@@ -50,7 +50,7 @@ export const officialSiteUrl = 'https://sipabacus.com/in/' // national brand ref
 
 /**
  * Programme names below come from search-result excerpts of the official SIP Abacus India
- * site (the site itself was unreachable). Local availability, levels, ages, fees: TO CONFIRM.
+ * site (the site itself was unreachable). Local availability, levels, ages: TO CONFIRM.
  */
 export const programmes = [
   {
@@ -132,8 +132,8 @@ export const faqs = [
     a: 'This depends on the programme and the centre. Please contact the Lakhra centre to discuss what suits your child.',
   },
   {
-    q: 'What are the fees and batch timings?',
-    a: 'We do not list fees or timings here because they must come from the centre. Send an enquiry or call the centre for current details.',
+    q: 'What are the batch timings?',
+    a: 'Batch timings are set by the centre. Send an enquiry on WhatsApp or call the centre for current details.',
   },
   {
     q: 'Can I visit or attend a demo class?',
